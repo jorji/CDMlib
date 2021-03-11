@@ -117,9 +117,28 @@ $ cmake -DINSTALL_DIR=${CDM_HOME}/CDMlib -Dwith_MPI=yes -Dwith_util=yes -Dwith_e
 ~~~
 
 
-### FUJITSU compiler / FX10, FX100, K on login nodes (Cross compilation) and Fujitsu TCS environment for intel PC
+### FUJITSU compiler / Fugaku, FX10, FX100, K on login nodes (Cross compilation) and Fujitsu TCS environment for intel PC
 
 ~~~
+Fugaku
+$ spack load hdf5
+$ spack load netcdf-c
+
+HDF5_PATH:   spack location --install-dir hdf5
+NetCDF_PATH: spack location --install-dir netcdf-c
+
+$ cmake -DINSTALL_DIR=${CDM_HOME}/CDMlib \
+            -DCMAKE_TOOLCHAIN_FILE=../cmake/Toolchain_Fugaku.cmake \
+            -Dwith_MPI=yes \
+            -Dwith_example=no \
+            -Dwith_util=no \
+            -Dwith_TP=${CDM_HOME}/TextParser \
+            -Dwith_CPM=${CDM_HOME}/CPMlib \
+            -Dwith_HDF=HDF5_PATH \
+            -Dwith_NetCDF=NetCDF_PATH \
+            -Denable_BUFFER_SIZE=no ..
+---
+
 $ cmake -DINSTALL_DIR=${CDM_HOME}/CDMlib \
             -DCMAKE_TOOLCHAIN_FILE=../cmake/Toolchain_fx10.cmake \
             -Dwith_MPI=yes \

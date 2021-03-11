@@ -48,13 +48,13 @@ set(cdm_files
     cdm_MPI.C
     cdm_Process.C
     cdm_TextParser.C
-    cdm_TimeSlice.C
-    cdm_Unit.C
     cdm_VisIt.C
+    cdm_Unit.C
+    cdm_TimeSlice.C
 )
 
 if(with_NetCDF)
-  set(cdm_files "${cdm_files} cdm_DFI_NETCDF.C")
+  set(cdm_files ${cdm_files} cdm_DFI_NETCDF.C)
 endif()
 
 if(with_MPI)
