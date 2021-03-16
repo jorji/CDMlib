@@ -49,6 +49,9 @@ tools/upacs2dfi   DFI generator for UPACS code
 
 ~~~
 $ export CDM_HOME=/hogehoge
+
+Example for hogehoge: ${HOME}/lib
+
 $ mkdir build
 $ cd build
 $ cmake [options] ..
@@ -113,6 +116,14 @@ In following exsmples, assuming that TextParser, CPMlib, and NetCDF library are 
 ### INTEL/GNU compiler
 
 ~~~
+Ubuntu
+$ sudo apt update
+$ sudo apt install hdf5-tools hdf5-helpers libhdf5-dev libhdf5-doc libhdf5-serial-dev
+$ sudo apt install libnetcdf-dev
+
+TO CHECK
+$  nc-config --all
+
 $ cmake -DINSTALL_DIR=${CDM_HOME}/CDMlib -Dwith_MPI=yes -Dwith_util=yes -Dwith_example=yes -Dwith_TP=${CDM_HOME}/TextParser -Dwith_CPM=${CDM_HOME}/CPMlib -Dwith_HDF=no -Dwith_NetCDF=no -Denable_BUFFER_SIZE=no ..
 ~~~
 
