@@ -124,7 +124,9 @@ $ sudo apt install libnetcdf-dev
 TO CHECK
 $  nc-config --all
 
-$ cmake -DINSTALL_DIR=${CDM_HOME}/CDMlib -Dwith_MPI=yes -Dwith_util=yes -Dwith_example=yes -Dwith_TP=${CDM_HOME}/TextParser -Dwith_CPM=${CDM_HOME}/CPMlib -Dwith_HDF=no -Dwith_NetCDF=no -Denable_BUFFER_SIZE=no ..
+Use the outpt for setting the "-Dwith_NetCDF" and "-Dwith_HDF" variables.  
+
+$ cmake -DINSTALL_DIR=${CDM_HOME}/CDMlib -Dwith_MPI=yes -Dwith_util=yes -Dwith_example=yes -Dwith_TP=${CDM_HOME}/TextParser -Dwith_CPM=${CDM_HOME}/CPMlib -Dwith_HDF=/usr/lib/x86_64-linux-gnu/hdf5/serial -Dwith_NetCDF=/usr/lib/x86_64-linux-gnu -Denable_BUFFER_SIZE=no ..
 ~~~
 
 
